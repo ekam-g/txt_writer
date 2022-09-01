@@ -11,7 +11,7 @@ There are two ways to read a file. One reads a file line by line(read), one read
 ```
 fn main() {
     let data = txt_writer::ReadData {}
-            .read("src/data.txt".to_string())
+            .read("path to your txt".to_string())
             .expect("failed when reading");
         for x in data {
             println!("{}", x);
@@ -24,7 +24,7 @@ fn main() {
 ```
 fn main() {
  let data = txt_writer::ReadData {}
-        .read_one("src/data.txt".to_string())
+        .read_one("path to your txt".to_string())
         .expect("failed when reading");
     println!("{}", data);
 }
@@ -42,7 +42,7 @@ fn main() {
     txt_writer::WriteData {}
         .drop_replace(
             "what you want to write to txt".to_string(),
-            "src/data.txt".to_string(),
+            "path to your txt".to_string(),
         )
         .expect("failed when writing");
 }
@@ -55,7 +55,7 @@ fn main() {
     txt_writer::WriteData {}
             .replace(
                 &"what you want to write to txt".to_string(),
-                "src/data.txt".to_string(),
+                "path to your txt".to_string(),
             )
             .expect("failed when writing");
 }
@@ -73,7 +73,7 @@ fn main(){
     txt_writer::WriteData {}
             .drop_add(
                 "what you want to write to txt".to_string(),
-                "src/data.txt".to_string(),
+                "path to your txt".to_string(),
             )
             .expect("failed when writing");
 }
@@ -87,9 +87,55 @@ fn main() {
     txt_writer::WriteData {}
             .add(
                 &"what you want to write to txt".to_string(),
-                "src/data.txt".to_string(),
+                "path to your txt".to_string(),
             )
             .expect("failed when writing");
 }
 
+```
+
+# Example 
+
+```
+fn main() {
+    txt_writer::WriteData {}
+        .drop_replace(
+            "what you want to write to txt".to_string(),
+            "src/data.txt".to_string(),
+        )
+        .expect("failed when writing");
+
+    txt_writer::WriteData {}
+        .replace(
+            &"what you want to write to txt".to_string(),
+            "src/data.txt".to_string(),
+        )
+        .expect("failed when writing");
+
+    txt_writer::WriteData {}
+        .drop_add(
+            "what you want to write to txt".to_string(),
+            "src/data.txt".to_string(),
+        )
+        .expect("failed when writing");
+
+    txt_writer::WriteData {}
+        .add(
+            &"what you want to write to txt".to_string(),
+            "src/data.txt".to_string(),
+        )
+        .expect("failed when writing");
+
+    let data = txt_writer::ReadData {}
+        .read("src/data.txt".to_string())
+        .expect("failed when reading");
+    for x in data {
+        println!("{}", x);
+    }
+
+    let data = txt_writer::ReadData {}
+        .read_one("src/data.txt".to_string())
+        .expect("failed when reading");
+    println!("{}", data);
+}
 ```
