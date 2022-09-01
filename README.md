@@ -1,6 +1,6 @@
 # Why use this package?
 
-This package allows you to write and read txt file with one line of code, rather then having to wast time and write 50-100 lines of code!
+This package allows you to write and read txt file with one line of code, rather then having to waste time and write 10-50 lines of code!
 
 # How do I read files?
 
@@ -32,3 +32,64 @@ fn main() {
 ```
 
 # How do I write data?
+
+There are 2 ways to write data. If you want to create a txt OR overwrite data use this.
+
+## use this one if you want to pass a String value
+
+```
+fn main() {
+    txt_writer::WriteData {}
+        .drop_replace(
+            "what you want to write to txt".to_string(),
+            "src/data.txt".to_string(),
+        )
+        .expect("failed when writing");
+}
+```
+
+use this one if you want to pass a &String value
+
+```
+fn main() {
+    txt_writer::WriteData {}
+            .replace(
+                &"what you want to write to txt".to_string(),
+                "src/data.txt".to_string(),
+            )
+            .expect("failed when writing");
+}
+
+```
+
+## Use this one if you want to add data to an existing txt.
+
+NOTE THIS FUNCTION WILL RETURN AN ERROR IF THE TXT DOES NOT EXIST
+
+use this one if you want to pass a String value
+
+```
+fn main(){
+    txt_writer::WriteData {}
+            .drop_add(
+                "what you want to write to txt".to_string(),
+                "src/data.txt".to_string(),
+            )
+            .expect("failed when writing");
+}
+
+```
+
+use this one if you want to pass a &String value
+
+```
+fn main() {
+    txt_writer::WriteData {}
+            .add(
+                &"what you want to write to txt".to_string(),
+                "src/data.txt".to_string(),
+            )
+            .expect("failed when writing");
+}
+
+```
