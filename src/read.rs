@@ -1,7 +1,8 @@
-use crate::func::files::ReadData;
 use std::fs::File;
 use std::io;
 use std::io::{BufRead, BufReader};
+
+use crate::ReadData;
 
 impl ReadData {
     pub fn read(&self, path: String) -> Result<Vec<String>, io::Error> {
