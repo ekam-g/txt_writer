@@ -11,4 +11,8 @@ fn main() {
     for x in data {
         println!("{}", x);
     }
+    let data = txt_writer::ReadData {}
+        .read_one("src/data.txt".to_string())
+        .expect("failed when reading");
+    println!("{}", data);
 }
