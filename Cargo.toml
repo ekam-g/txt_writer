@@ -2,7 +2,15 @@
 name = "txt_writer"
 version = "0.1.0"
 edition = "2021"
-
+description = "Easier and faster way to write txt files in rust"
+license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+
+[profile.dev]
+opt-level = 2
+
+[profile.release]
+opt-level = 3
