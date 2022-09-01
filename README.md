@@ -6,10 +6,10 @@ This package allows you to write and read txt file with one line of code, rather
 
 There are two ways to read a file. One reads a file line by line(read), one reads it as a string (read_one).
 
-Line by line version
+## Line by line version
 
 ```
-fn main {
+fn main() {
     let data = txt_writer::ReadData {}
             .read("src/data.txt".to_string())
             .expect("failed when reading");
