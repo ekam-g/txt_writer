@@ -1,21 +1,7 @@
 fn main() {
     txt_writer::WriteData {}
-        .drop_replace(
-            "what you want to write to txt".to_string(),
-            "src/data.txt".to_string(),
-        )
-        .expect("failed when writing");
-
-    txt_writer::WriteData {}
         .replace(
             &"what you want to write to txt".to_string(),
-            "src/data.txt".to_string(),
-        )
-        .expect("failed when writing");
-
-    txt_writer::WriteData {}
-        .drop_add(
-            "what you want to write to txt".to_string(),
             "src/data.txt".to_string(),
         )
         .expect("failed when writing");

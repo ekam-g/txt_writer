@@ -40,7 +40,7 @@ There are 2 ways to write data. If you want to create a txt OR overwrite data us
 ```
 fn main() {
     txt_writer::WriteData {}
-        .drop_replace(
+        .replace(
             "what you want to write to txt".to_string(),
             "path to your txt".to_string(),
         )
@@ -48,30 +48,15 @@ fn main() {
 }
 ```
 
-use this one if you want to pass a &String value
-
-```
-fn main() {
-    txt_writer::WriteData {}
-            .replace(
-                &"what you want to write to txt".to_string(),
-                "path to your txt".to_string(),
-            )
-            .expect("failed when writing");
-}
-
-```
-
 ## Use this one if you want to add data to an existing txt.
 
 NOTE THIS FUNCTION WILL RETURN AN ERROR IF THE TXT DOES NOT EXIST
 
-use this one if you want to pass a String value
 
 ```
 fn main(){
     txt_writer::WriteData {}
-            .drop_add(
+            .add(
                 "what you want to write to txt".to_string(),
                 "path to your txt".to_string(),
             )
@@ -80,41 +65,15 @@ fn main(){
 
 ```
 
-use this one if you want to pass a &String value
+# Example
 
 ```
+use txt_writer;
+
 fn main() {
-    txt_writer::WriteData {}
-            .add(
-                &"what you want to write to txt".to_string(),
-                "path to your txt".to_string(),
-            )
-            .expect("failed when writing");
-}
-
-```
-
-# Example 
-
-```
-fn main() {
-    txt_writer::WriteData {}
-        .drop_replace(
-            "what you want to write to txt".to_string(),
-            "src/data.txt".to_string(),
-        )
-        .expect("failed when writing");
-
     txt_writer::WriteData {}
         .replace(
             &"what you want to write to txt".to_string(),
-            "src/data.txt".to_string(),
-        )
-        .expect("failed when writing");
-
-    txt_writer::WriteData {}
-        .drop_add(
-            "what you want to write to txt".to_string(),
             "src/data.txt".to_string(),
         )
         .expect("failed when writing");
